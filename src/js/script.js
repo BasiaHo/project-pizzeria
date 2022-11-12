@@ -175,7 +175,7 @@
           const option = param.options[optionId];
           console.log(optionId, option);
           /*check if option is chosen in cathegory in formData*/
-          const checked = formData[paramId].indexOf(optionId) >= 0;
+          const checked = formData[paramId] && formData[paramId].includes(optionId);
           /* see if the price must be increased or reduced*/
           if (checked && !option.default) {
             price += option.price;
