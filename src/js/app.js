@@ -1,8 +1,16 @@
 import { settings, select, classNames, templates } from './settings.js';
-import Product from './components/Product.js';
+import {Product} from './components/Product.js';
 import Cart from './components/Cart.js';
+import Booking from './components/Booking.js';
 
 const app = {
+  initBooking: function () {
+    const bookingWidgetContainer = document.querySelector(
+      select.containerOf.booking
+    );
+    new Booking(bookingWidgetContainer);
+  },
+
   initPages: function () {
     const thisApp = this;
 
@@ -19,7 +27,9 @@ const app = {
       }
     }
 
-    thisApp.activatePage(idFromHash);
+    console.log(pageMatchingHash);
+
+    thisApp.activatePage(pageMatchingHash);
 
     for (let link of thisApp.navLinks) {
       link.addEventListener('click', function (event) {
@@ -75,6 +85,7 @@ const app = {
     thisApp.initPages();
     thisApp.initData();
     thisApp.initCart();
+    thisApp.initBooking();
   },
 
   initData: function () {

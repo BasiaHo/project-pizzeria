@@ -2,7 +2,7 @@ import { templates, select, classNames } from '../settings.js';
 import utils from '../utils.js';
 import AmountWidget from './AmountWidget.js';
 
-class Product {
+export class Product {
   constructor(id, data) {
     const thisProduct = this;
 
@@ -178,11 +178,10 @@ class Product {
 
     //app.cart.add(thisProduct.prepareCartProduct());
 
-
     const event = new CustomEvent('add-to-cart', {
       bubbles: true,
       detail: {
-        product: thisProduct.prepareCartProduct()
+        product: thisProduct.prepareCartProduct(),
       },
     });
     thisProduct.element.dispatchEvent(event);
@@ -236,4 +235,4 @@ class Product {
     return params;
   }
 }
-export default Product;
+//export default Product;
