@@ -10,6 +10,7 @@ class Booking {
 
     const thisBooking = this;
 
+    thisBooking.selectedTable = null;
     thisBooking.render(bookingWidgetContainer);
     thisBooking.initWidgets();
     thisBooking.getData();
@@ -145,6 +146,40 @@ class Booking {
     }
   }
 
+  selectTable(event) {
+    const thisBooking = this;
+    //console.log('this is an event:', event);
+    if (event.target.classList.contains(classNames.booking.table)) {
+      const table = event.target;
+      console.log('this is an event:', event);
+      if (!table.classList.contains(classNames.booking.tableBooked)) {
+        const tableId = table.getAttribute(settings.booking.tableIdAttribute);
+        const selectedTable = document.querySelector(
+          select.booking.selectedTable
+        );
+
+        if (tableId == thisBooking.selectedTable) {
+          thisBooking.selectedTable = null;
+        } else {
+          thisBooking.selectedTable = tableId;
+          table.classList.add(classNames.booking.tableSelected);
+        }
+
+        selectedTable?.classList.remove(classNames.booking.tableSelected);
+      } else {
+        alert('This table is already booked. Please choose another one.')
+      }
+    }
+  }
+
+  cleanTableSelection() {
+    const thisBooking = this;
+
+    const selectedTable = document.querySelector(select.booking.selectedTable);
+    selectedTable?.classList.remove(classNames.booking.tableSelected);
+    thisBooking.selectedTable = -1;
+  }
+
   updateDOM() {
     const thisBooking = this;
 
@@ -177,6 +212,8 @@ class Booking {
         table.classList.remove(classNames.booking.tableBooked);
       }
     }
+
+    thisBooking.cleanTableSelection();
   }
 
   render(bookingWidgetContainer) {
@@ -202,6 +239,10 @@ class Booking {
 
     thisBooking.dom.tables = document.querySelectorAll(select.booking.tables);
 
+    thisBooking.dom.floorPlanWrapper = document.querySelector(
+      select.booking.floorPlanWrapper
+    );
+
     thisBooking.dom.datePicker = document.querySelector(
       select.widgets.datePicker.wrapper
     );
@@ -224,6 +265,13 @@ class Booking {
     thisBooking.dom.wrapper.addEventListener('updated', function () {
       thisBooking.updateDOM();
     });
+
+    thisBooking.dom.floorPlanWrapper.addEventListener(
+      'click',
+      function (event) {
+        thisBooking.selectTable(event);
+      }
+    );
   }
 }
 
