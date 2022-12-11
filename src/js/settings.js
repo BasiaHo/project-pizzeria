@@ -40,8 +40,6 @@ export const select = {
     },
   },
 
-
-
   booking: {
     peopleAmount: '.people-amount',
     hoursAmount: '.hours-amount',
@@ -109,10 +107,9 @@ export const settings = {
     url: 'http://localhost:3131',
     products: 'products',
     orders: 'orders',
-    product: 'product',
-    order: 'order',
-    booking: 'booking',
-    event: 'event',
+    products: 'products',
+    bookings: 'bookings',
+    events: 'events',
     dateStartParamKey: 'date_gte',
     dateEndParamKey: 'date_lte',
     notRepeatParam: 'repeat=false',
