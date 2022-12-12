@@ -1,0 +1,78 @@
+#home {
+  .header-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 10vh;
+
+    .service-button {
+      flex: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 15vh;
+      background-color: black;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      position: relative;
+
+      h2, p {
+        padding: 0;
+        margin: 0;
+        transition: all .4s ease-in-out;
+      }
+
+      p {
+        transition: all .4s ease-in-out;
+        position: absolute;
+        transform: translateY(40%);
+        z-index: -1;
+        bottom: 10px;
+      }
+
+
+      &:nth-child(1) {
+        margin: 10px 5px 5px 10px;
+        background-image: url(../../images/home/pizza-1.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+
+      &:nth-child(2) {
+        margin: 10px 10px 5px 5px;
+        background-image: url(../../images/home/pizza-2.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+
+      &:hover {
+        h2,p {
+            z-index: 0;
+            transform: translateY(-40%);
+        }
+
+      }
+
+    }
+
+    .opening-hours {
+      flex: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 15vh;
+      background-color: #ff6b6b;
+      color: white;
+      margin: 5px 10px 10px 10px;
+      border-radius: 5px;
+
+      h2, p {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+}
