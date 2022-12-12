@@ -165,7 +165,10 @@ class Booking {
           table.classList.add(classNames.booking.tableSelected);
         }
 
-        selectedTable?.classList.remove(classNames.booking.tableSelected);
+        if(selectedTable) {
+          selectedTable.classList.remove(classNames.booking.tableSelected);
+        }
+
       } else {
         alert('This table is already booked. Please choose another one.');
       }
@@ -176,7 +179,11 @@ class Booking {
     const thisBooking = this;
 
     const selectedTable = document.querySelector(select.booking.selectedTable);
-    selectedTable?.classList.remove(classNames.booking.tableSelected);
+    
+    if(selectedTable) {
+      selectedTable.classList.remove(classNames.booking.tableSelected);
+    }
+
     thisBooking.selectedTable = -1;
   }
 
