@@ -46,6 +46,10 @@ export const select = {
     tables: '.floor-plan .table',
     floorPlanWrapper: '.floor-plan',
     selectedTable: '.table.selected',
+    options: '.booking-options',
+    form: '.booking-form',
+    phone: '[name="phone"]',
+    address: '[name="address"]',
   },
 
   nav: {
@@ -89,6 +93,8 @@ export const classNames = {
     tableBooked: 'booked',
     tableSelected: 'selected',
     table: 'table',
+    checkbox: 'checkbox',
+    starter: 'starter',
   },
   nav: {
     active: 'active',
@@ -127,6 +133,7 @@ export const settings = {
     maxDaysInFuture: 14,
   },
   booking: {
+    nameAttribute: 'name',
     tableIdAttribute: 'data-table',
   },
 };
