@@ -16,7 +16,7 @@ const app = {
 
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
-    thisApp.homeLinks = document.querySelectorAll(select.nav.homeLinks)
+    thisApp.homeLinks = document.querySelectorAll(select.nav.homeLinks);
     const idFromHash = window.location.hash.replace('#/', '');
 
     let pageMatchingHash = thisApp.pages[0].id;
